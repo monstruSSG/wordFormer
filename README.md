@@ -2,7 +2,7 @@
 An endless mobile games for forming words under time pressure
 
 ## Description
-This game is a game where letters will appear on the screen and you will have to fill the missing letters from a given word.
+This game is a game where letters will appear on the screen and you will have to fill the missing letters from a given word by pressing on the letters on the screen.
 It will have an achievements system.
 The supported languages will be romanian and english.
 
