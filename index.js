@@ -1,9 +1,17 @@
-/**
- * @format
- */
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import { Provider } from 'react-redux';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import { name as appName } from './app.json';
+import Router from './src/screens/Router';
+import configureStore from './src/store/configureStore';
 
-AppRegistry.registerComponent(appName, () => App);
+const store = configureStore();
+
+const WordsGame = () => (
+    <Provider store={store}>    
+        <Router />
+    </Provider>
+);
+
+AppRegistry.registerComponent(appName, () => WordsGame);
