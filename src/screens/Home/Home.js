@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, ImageBackground } from 'react-native';
+import { View, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'react-native';
 
 import BaseScreen from '../../components/BaseScreen/BaseScreen';
 import CustomText from '../../components/UI/CustonText';
@@ -14,6 +14,9 @@ class Home extends Component {
         header: null,
     }
 
+    navigateGame = () => this.props.navigation.navigate('Game');
+    navigateProfile = () => this.props.navigation.navigate('Profile');
+
     render() {
         return (
             <BaseScreen>
@@ -23,23 +26,29 @@ class Home extends Component {
                     </View>
                     <View style={[styles.buttonsContainer, styles.buttonsPosition]}>
                         <View style={[styles.half, { alignItems: 'center', justifyContent: 'flex-end' }]}>
-                            <ImageBackground source={PlayButton} style={styles.playButton} resizeMode='contain'>
-                                <View style={[styles.center, styles.playButton]}>
-                                    <CustomText large>PLAY</CustomText>
-                                </View>
-                            </ImageBackground>
+                            <TouchableOpacity style={[styles.playButton, styles.center]} onPress={this.navigateGame}>
+                                <ImageBackground source={PlayButton} style={styles.playButton} resizeMode='contain'>
+                                    <View style={[styles.center, styles.playButton]}>
+                                        <CustomText large>PLAY</CustomText>
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
                         </View>
                         <View style={[styles.half, { alignItems: 'center' }]}>
-                            <ImageBackground source={FbButton} style={styles.playButton} resizeMode='contain'>
-                                <View style={[styles.center, styles.playButton]}>
-                                    <CustomText large>SHARE ON FB</CustomText>
-                                </View>
-                            </ImageBackground>
+                            <TouchableOpacity style={[styles.playButton, styles.center]}>
+                                <ImageBackground source={FbButton} style={styles.playButton} resizeMode='contain'>
+                                    <View style={[styles.center, styles.playButton]}>
+                                        <CustomText large>SHARE ON FB</CustomText>
+                                    </View>
+                                </ImageBackground>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={[styles.bottomContainer, { flexDirection: 'row', justifyContent: 'flex-end' }]}>
-                        <View style={[{ height: '120%', width: '30%'}, styles.center]}>
-                            <Image source={ProfilePic} style={styles.playButton} resizeMode='cover' />
+                        <View style={[{ height: '120%', width: '30%' }, styles.center, styles.profilePosition]}>
+                            <TouchableOpacity style={[styles.max, styles.center]} onPress={this.navigateProfile}>
+                                <Image source={ProfilePic} style={styles.rade} resizeMode='contain' />
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
@@ -49,13 +58,21 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+    profilePosition: {
+        position: 'relative',
+        left: '20%',
+        bottom: '3%'
+    },
+    rade: {
+        width: '80%',
+        height: '65%'
+    },
     buttonsPosition: {
-        position:'relative',
-        top: '5%',
-        left: '5%'
+        position: 'relative',
+        top: '5%'
     },
     playButton: {
-        width: '90%',
+        width: '100%',
         height: '80%'
     },
     half: {
