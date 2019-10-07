@@ -3,6 +3,7 @@ import { View, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'reac
 
 import BaseScreen from '../../components/BaseScreen/BaseScreen';
 import CustomText from '../../components/UI/CustonText';
+import Header from './Header';
 
 class Game extends Component {
     static navigationOptions = {
@@ -12,6 +13,9 @@ class Game extends Component {
     render() {
         return (
             <BaseScreen>
+                <View style={[{ width: '100%', height: '15%' }]}>
+                    <Header />
+                </View>
                 <CustomText large>game</CustomText>
             </BaseScreen>
         );
