@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 
 import HeaderBg from '../../assets/gameHeader.png';
+import BackButton from '../../assets/backArrowBlue.png';
 
 const styles = StyleSheet.create({
     max: {
@@ -16,21 +17,21 @@ const styles = StyleSheet.create({
         width: '20%',
         height: '100%'
     },
-    middle: {
+    backButton: {
+        width: '60%',
         height: '100%',
-        width: '60%'
+        position: 'relative',
+        bottom: '8%',
+        right: '10%'
     }
 });
 
 export default props => (
-    <ImageBackground style={[styles.max, props.size, styles.center]} source={HeaderBg} resizeMode='cover'>
-        <View style={[styles.ending]}>
-
-        </View>
-        <View style={[styles.middle]}>
-        </View>
-        <View style={[styles.ending]}>
-
+    <ImageBackground style={[styles.max, props.size]} source={HeaderBg} resizeMode='cover'>
+        <View style={[styles.ending, styles.center]}>
+            <TouchableOpacity style={[styles.center, styles.backButton]} onPress={() => alert('Back')}>
+                <Image source={BackButton} style={styles.max} resizeMode='center' />
+            </TouchableOpacity>
         </View>
     </ImageBackground>
 );

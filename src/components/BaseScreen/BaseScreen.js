@@ -7,12 +7,16 @@ const styles = StyleSheet.create({
     max: {
         width: '100%',
         height: '100%'
+    },
+    center: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
 export default props => (
     <SafeAreaView style={styles.max}>
-        <ImageBackground source={Background} style={styles.max} resizeMode='cover'>
+        <ImageBackground source={Background} style={[styles.max, styles.center]} resizeMode='cover'>
             {props.children}
         </ImageBackground>
     </SafeAreaView>

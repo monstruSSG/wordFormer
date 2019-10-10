@@ -40,7 +40,7 @@ const text = props => {
 
     let fontSize = props.extra ? EXTRA_LARGE_FONT_SIZE : props.large ? LARGE_FONT_SIZE : props.normal ? NORMAL_FONT_SIZE : SMALL_FONT_SIZE;
 
-    if(props.giant) { 
+    if (props.giant) {
         fontSize = EXTRA_LARGE_FONT_SIZE * 2;
     }
 
@@ -49,7 +49,7 @@ const text = props => {
     if (props.color) color.color = props.color
 
     return (
-        <Text style={[styles.text, { fontSize: fontSize, ...color }, props.style]}>{props.children}</Text>
+        <Text style={[styles.text, { fontSize: props.size ? props.size : fontSize, ...color }, props.style]}>{props.children}</Text>
     );
 };
 
