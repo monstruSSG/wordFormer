@@ -10,13 +10,13 @@ export default class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cellSize: Math.floor(Dimensions.get('window').width / props.size)
+            cellSize: Math.floor(Number(Dimensions.get('window').width) / props.size)
         };
     }
 
     square = (color, letter) => <View style={[styles.center, {
-        height: this.state.cellSize,
-        width: this.state.cellSize,
+        height: Number(this.state.cellSize),
+        width: Number(this.state.cellSize),
         margin: '1%'
     }]}>
         <TouchableOpacity style={[styles.center, styles.max]}>
@@ -30,11 +30,16 @@ export default class Board extends Component {
 
         return (
             <View style={[styles.max, styles.backgroundColor, styles.center]}>
-                {this.props.lines.map(line => <View style={[{ margin: '2%', width: '100%', height: this.state.cellSize, flexDirection: 'row' }, styles.center]}>
+                {this.props.lines.map(line => <View style={[{
+                    margin: '2%',
+                    width: '100%',
+                    height: this.state.cellSize,
+                    flexDirection: 'row'
+                }, styles.center]}>
                     {line.map(element => this.square(element.color, element.letter))}
                 </View>)}
             </View>
-        );
+        );  
     }
 };
 

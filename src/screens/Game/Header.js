@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 export default props => (
     <ImageBackground style={[styles.max, props.size]} source={HeaderBg} resizeMode='cover'>
         <View style={[styles.ending, styles.center]}>
-            <TouchableOpacity style={[styles.center, styles.backButton]} onPress={() => alert('Back')}>
+            <TouchableOpacity style={[styles.center, styles.backButton]} onPress={props.onBack}>
                 <Image source={BackButton} style={styles.max} resizeMode='center' />
             </TouchableOpacity>
         </View>

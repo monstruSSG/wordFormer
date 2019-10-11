@@ -9,17 +9,19 @@ import Stats from './Stats';
 
 class Game extends Component {
     static navigationOptions = {
-        header: null,
+        header: null
     }
+
+    navigateLevels = () => this.props.navigation.navigate('Levels');
 
     render() {
         return (
             <BaseScreen>
                 <View style={[{alignItems: 'center'}, styles.max]}>
                     <View style={[{width: '100%', height: '12%'}]}>
-                        <Header />
+                        <Header onBack={this.navigateLevels} />
                     </View>
-                    <View style={[{height: '38%', width: '90'}]}>
+                    <View style={[{height: '38%', width: '90%'}]}>
                         <Stats />
                     </View>
 
