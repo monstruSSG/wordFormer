@@ -5,7 +5,7 @@ import BaseScreen from '../../components/BaseScreen/BaseScreen';
 import CustomText from '../../components/UI/CustonText';
 import Header from './Header';
 import Board from './Board';
-import Stats from './Stats';
+import Keyboard from './Keyboard';
 
 class Game extends Component {
     static navigationOptions = {
@@ -14,26 +14,72 @@ class Game extends Component {
 
     navigateLevels = () => this.props.navigation.navigate('Levels');
 
+    componentDidMount() {
+        console.log(this.props.navigation.getParam('level', 'NO-LEVEL'), 'PARAM HERE')
+    }
+
     render() {
         return (
             <BaseScreen>
-                <View style={[{alignItems: 'center'}, styles.max]}>
-                    <View style={[{width: '100%', height: '12%'}]}>
+                <View style={[styles.alignItemsCenter, styles.max]}>
+                    <View style={[styles.header]}>
                         <Header onBack={this.navigateLevels} />
                     </View>
-                    <View style={[{height: '38%', width: '90%'}]}>
-                        <Stats />
-                    </View>
+                    <View style={[styles.stats]}>
 
-                    <View style={[styles.center, { width: '50%', height: '50%' }]}>
-                        <Board size={6} lines={[
-                            [{ color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
-                            [{ color: '', letter: 'x' }, { color: 'white', letter: 'x' }, { color: '', letter: 'x' }, { color: 'white', letter: 'x' }],
-                            [{ color: 'white', letter: 'x' }, { color: '', letter: 'x' }, { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
-                            [{ color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }, { color: '', letter: 'x' }, { color: 'white', letter: 'x' }]
+                    </View>
+                    <View style={[styles.board]}>
+                        <Board size={12} lines={[
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
+                            [{ color: 'white', letter: 'c' }, { color: 'white', letter: '' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'e' }, { color: 'white', letter: 'x' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'e' },
+                            { color: 'white', letter: 'x' }, { color: 'white', letter: 'x' }],
                         ]} />
                     </View>
-
+                    <View style={[styles.keyboard, styles.center]}>
+                        <Keyboard onKeyPress={letter => alert(letter)} />
+                    </View>
                 </View>
             </BaseScreen>
         );
@@ -41,6 +87,27 @@ class Game extends Component {
 }
 
 const styles = StyleSheet.create({
+    keyboard: {
+        width: '100%',
+        height: '25%'
+    },
+    board: {
+        width: '100%',
+        height: '50%',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    stats: {
+        height: '13%',
+        width: '90%'
+    },
+    alignItemsCenter: {
+        alignItems: 'center'
+    },
+    header: {
+        width: '100%',
+        height: '12%'
+    },
     center: {
         justifyContent: 'center',
         alignItems: 'center'

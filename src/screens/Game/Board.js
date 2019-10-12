@@ -10,14 +10,15 @@ export default class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cellSize: Math.floor(Number(Dimensions.get('window').width) / props.size)
+            cellSize: Math.floor(Number(Dimensions.get('window').width) / props.size) - 2
         };
     }
 
     square = (color, letter) => <View style={[styles.center, {
         height: Number(this.state.cellSize),
         width: Number(this.state.cellSize),
-        margin: '1%'
+        marginLeft: 2,
+        marginRight: 2
     }]}>
         <TouchableOpacity style={[styles.center, styles.max]}>
             <ImageBackground source={color === 'white' ? White : Grey} style={[styles.center, styles.max]} resizeMode='stretch'>
@@ -29,9 +30,10 @@ export default class Board extends Component {
     render() {
 
         return (
-            <View style={[styles.max, styles.backgroundColor, styles.center]}>
+            <View style={[styles.buttonSize, styles.backgroundColor, styles.center]}>
                 {this.props.lines.map(line => <View style={[{
-                    margin: '2%',
+                    marginBottom: 2,
+                    marginTop:2,
                     width: '100%',
                     height: this.state.cellSize,
                     flexDirection: 'row'
@@ -47,6 +49,10 @@ const styles = StyleSheet.create({
     max: {
         width: '100%',
         height: '100%'
+    },
+    buttonSize: {
+        width: '90%',
+        height: '90%'
     },
     center: {
         justifyContent: 'center',

@@ -14,15 +14,15 @@ export default props => (
             <Image
                 style={[styles.max]}
                 resizeMode='contain'
-                source={Icon1}
+                source={props.iconOne ?  Icon1: Icon2}
             />
         </View>
         <View style={[styles.description]}>
             <CustomText normal color={CONSTANTS.BLACK}>Level {props.level}</CustomText>
-            <CustomText large color={props.isDone ? CONSTANTS.GREEN : CONSTANTS.RED}>{props.isDone ? 'FINISHED' : 'NOT DONE'}</CustomText>
+            <CustomText large color={props.finished ? CONSTANTS.GREEN : CONSTANTS.RED}>{props.finished ? 'FINISHED' : 'NOT DONE'}</CustomText>
         </View>
         <View style={[styles.buttonContent]}>
-            <TouchableOpacity style={[styles.center,styles.buttonSize]}>
+            <TouchableOpacity style={[styles.center,styles.buttonSize]} onPress={props.onPlay}>
                 <Image style={styles.max} resizeMode='contain' source={PlayButton} />
             </TouchableOpacity>
         </View>

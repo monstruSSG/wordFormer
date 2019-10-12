@@ -9,6 +9,16 @@ import Card from './Card';
 import LevelsModalBg from '../../assets/levelsModal.png';
 import GreenButtonBg from '../../assets/greenButton.png';
 
+//some fake data for levels
+const DATA = [
+    { level: 1, finished: true },
+    { level: 2, finished: false },
+    { level: 3, finished: true },
+    { level: 4, finished: false },
+    { level: 5, finished: true },
+    { level: 6, finished: false },
+]
+
 export default class Levels extends Component {
     static navigationOptions = {
         header: null,
@@ -16,16 +26,17 @@ export default class Levels extends Component {
 
     state = {
         cardSize: {
-            height: Math.floor(Number(Dimensions.get('window').height) * (1.5/10)),
+            height: Math.floor(Number(Dimensions.get('window').height) * (1.5 / 10)),
             width: Math.floor(Number(Dimensions.get('window').width) * (8 / 10))
         }
     }
 
     navigateHome = () => this.props.navigation.navigate('Home');
     navigateProfile = () => this.props.navigation.navigate('Profile');
+    navigateGame = level => this.props.navigation.navigate('Game', { level });
 
     render() {
-        console.log(this.state.cardSize)
+
         return (
             <BaseScreen>
                 <View style={[styles.max, styles.alignCenter]}>
@@ -42,13 +53,13 @@ export default class Levels extends Component {
                             </View>
                             <View style={[styles.center, styles.levelsSize]}>
                                 <FlatList
-                                    data={[{ key: 1 }, { key: 2 }, { key: 3 }, { key: 4 }, { key: 5 }, { key: 6 }, { key: 7 }, { key: 8 }, { key: 9 }, { key: 10 }]}
+                                    data={DATA}
                                     renderItem={({ item }) => (
                                         <View style={{
                                             width: this.state.cardSize.width,
                                             height: this.state.cardSize.height,
                                         }}>
-                                            <Card level={item.key} />
+                                            <Card level={item.level} finished={item.finished} onPlay={() => this.navigateGame(item.level)} />
                                         </View>
                                     )}
                                 />
