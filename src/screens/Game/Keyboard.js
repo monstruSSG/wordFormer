@@ -20,11 +20,10 @@ export default class Board extends Component {
         };
     }
 
-    square = letter => <View style={[styles.center, {
+    square = letter => <View style={[styles.center, styles.square, {
         height: Number(this.state.cellSize),
         width: Number(this.state.cellSize),
-        marginLeft: 2,
-        marginRight: 2
+
     }]}>
         <TouchableOpacity style={[styles.center, styles.max]} onPress={() => this.props.onKeyPress(letter)}>
             <ImageBackground source={BlackCard} style={[styles.center, styles.max]} resizeMode='stretch'>
@@ -37,13 +36,7 @@ export default class Board extends Component {
 
         return (
             <View style={[styles.buttonSize, styles.backgroundColor, styles.center]}>
-                {keys.map(line => <View style={[{
-                    marginBottom: 2,
-                    marginTop: 2,
-                    width: '100%',
-                    height: this.state.cellSize,
-                    flexDirection: 'row'
-                }, styles.center]}>
+                {keys.map(line => <View style={[styles.key, { height: this.state.cellSize, }, styles.center]}>
                     {line.map(element => this.square(element))}
                 </View>)}
             </View>
@@ -52,6 +45,16 @@ export default class Board extends Component {
 };
 
 const styles = StyleSheet.create({
+    square: {
+        marginLeft: 2,
+        marginRight: 2
+    },
+    key: {
+        marginBottom: 2,
+        marginTop: 2,
+        width: '100%',
+        flexDirection: 'row'
+    },
     max: {
         width: '100%',
         height: '100%'
