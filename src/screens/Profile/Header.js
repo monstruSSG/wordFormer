@@ -1,38 +1,65 @@
 import React from 'react';
-import { Image, ImageBackground, StyleSheet, View } from 'react-native';
+import { View, StyleSheet, ImageBackground, TouchableOpacity, Image } from 'react-native';
 
-import HeaderBg from '../../assets/profileTopHeader.png';
-import BackArrow from '../../assets/backArrowBlue.png';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import CustomText from '../../components/UI/CustonText';
+
+import HeaderBg from '../../assets/coloredHeader.png';
+import BackButton from '../../assets/backArrowBlue.png';
+import Levels from '../../assets/levels.png';
+
+export default props => (
+    <View style={[styles.container]}>
+        <ImageBackground source={HeaderBg} resizeMode='cover' style={[styles.container]}>
+            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+                <TouchableOpacity style={[styles.center, styles.backButton]} onPress={props.onBack}>
+                    <Image source={BackButton} style={styles.max} resizeMode='center' />
+                </TouchableOpacity>
+            </View>
+            <View style={[styles.center, { width: '50%', height: '100%' }, styles.letterPosition]}>
+                <CustomText extra style={styles.letter}>PROFILE</CustomText>
+            </View>
+            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+                <TouchableOpacity style={[styles.center, styles.profileIcon]} onPress={props.onIcon}>
+                    <Image source={Levels} style={styles.max} resizeMode='center' />
+                </TouchableOpacity>
+            </View>
+        </ImageBackground>
+    </View>
+);
 
 const styles = StyleSheet.create({
-    max: {
+    letterPosition:{
+        position: 'relative',
+        bottom: '4%'
+    },
+    container: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        flexDirection: 'row'
+    },
+    max: {
+        height: '100%',
+        width: '100%'
     },
     center: {
         justifyContent: 'center',
         alignItems: 'center'
     },
-    ending: {
-        width: '20%',
-        height: '100%'
+    backButton: {
+        width: '50%',
+        height: '90%',
+        position: 'relative',
+        right: '10%',
+        bottom: '18%'
     },
-    middle: {
-        height: '100%',
-        width: '60%'
+    profileIcon: {
+        width: '42%',
+        height: '70%',
+        position: 'relative',
+        left: '10%',
+        bottom: '18%'
+    },
+    letter: {
+        letterSpacing: 2
     }
 });
-
-export default props => (
-    <ImageBackground style={[styles.max, props.size]} source={HeaderBg} resizeMode='cover'>
-        <View style={[styles.ending,  {justifyContent:'center'}]}>
-            <TouchableOpacity style={[{ width: '60%', height: '80%'}, styles.center]}>
-                <Image source={BackArrow} style={styles.max} resizeMode='contain' />
-            </TouchableOpacity>
-        </View>
-        <View style={[styles.ending]}>
-
-        </View>
-    </ImageBackground>
-);

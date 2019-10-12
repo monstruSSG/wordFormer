@@ -8,13 +8,14 @@ import Logo from '../../assets/logo.png';
 import PlayButton from '../../assets/greenButton.png';
 import FbButton from '../../assets/fbButton.png';
 import ProfilePic from '../../assets/radeCarte.png';
+import About from '../../assets/about.png';
 
 class Home extends Component {
     static navigationOptions = {
         header: null,
     }
 
-    navigateGame = () => this.props.navigation.navigate('Game');
+    navigateLevels = () => this.props.navigation.navigate('Levels');
     navigateProfile = () => this.props.navigation.navigate('Profile');
 
     render() {
@@ -26,7 +27,7 @@ class Home extends Component {
                     </View>
                     <View style={[styles.buttonsContainer, styles.buttonsPosition]}>
                         <View style={[styles.half, { alignItems: 'center', justifyContent: 'flex-end' }]}>
-                            <TouchableOpacity style={[styles.playButton, styles.center]} onPress={this.navigateGame}>
+                            <TouchableOpacity style={[styles.playButton, styles.center]} onPress={this.navigateLevels}>
                                 <ImageBackground source={PlayButton} style={styles.playButton} resizeMode='contain'>
                                     <View style={[styles.center, styles.playButton]}>
                                         <CustomText large>PLAY</CustomText>
@@ -44,9 +45,14 @@ class Home extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={[styles.bottomContainer, { flexDirection: 'row', justifyContent: 'flex-end' }]}>
-                        <View style={[{ height: '120%', width: '30%' }, styles.center, styles.profilePosition]}>
-                            <TouchableOpacity style={[styles.max, styles.center]} onPress={this.navigateProfile}>
+                    <View style={[styles.bottomContainer, { flexDirection: 'row' }]}>
+                        <View style={[{ height: '80%', width: '50%' }, styles.aboutPosition]}>
+                            <TouchableOpacity style={[styles.max, { justifyContent: 'center' }]} onPress={this.navigateProfile}>
+                                <Image source={About} style={styles.rade} resizeMode='contain' />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={[{ height: '80%', width: '50%'}, styles.center, styles.profilePosition]}>
+                            <TouchableOpacity style={[styles.max, { alignItems: 'flex-end', justifyContent: 'center' }]} onPress={this.navigateProfile}>
                                 <Image source={ProfilePic} style={styles.rade} resizeMode='contain' />
                             </TouchableOpacity>
                         </View>
@@ -58,10 +64,13 @@ class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+    aboutPosition: {
+        position: 'relative',
+        right: '15%'
+    },
     profilePosition: {
         position: 'relative',
-        left: '20%',
-        bottom: '3%'
+        left: '15%'
     },
     rade: {
         width: '80%',
