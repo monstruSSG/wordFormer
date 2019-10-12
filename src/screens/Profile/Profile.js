@@ -25,7 +25,7 @@ class Profile extends Component {
     render() {
         return (
             <BaseScreen>
-                <View style={[styles.max, { alignItems: 'center' }]}>
+                <View style={[styles.max, styles.aligItemsCenter]}>
                     <View style={[styles.headerSize]}>
                         <Header
                             onBack={this.navigateHome}
@@ -119,6 +119,9 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+    aligItemsCenter: {
+        alignItems: 'center'
+    },
     gamesHeader: {
         width: '84%', 
         height: '30%' 
