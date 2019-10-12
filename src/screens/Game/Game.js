@@ -5,7 +5,7 @@ import BaseScreen from '../../components/BaseScreen/BaseScreen';
 import CustomText from '../../components/UI/CustonText';
 import Header from './Header';
 import Board from './Board';
-import Keyboard from './Keyboard';
+import Keyboard from './Keyboard/Keyboard';
 
 import OrangeModal from '../../assets/orangeModal.png';
 import constants from '../../utils/constants';
@@ -16,7 +16,9 @@ class Game extends Component {
     }
 
     state = {
-        level: null
+        level: null,
+        moves: 12,
+        time: 10
     }
 
     navigateLevels = () => this.props.navigation.navigate('Levels');
@@ -36,11 +38,11 @@ class Game extends Component {
                         <ImageBackground style={[styles.center, styles.statsBg]} source={OrangeModal} resizeMode='stretch'>
                             <View style={[styles.statsStats]}>
                                 <CustomText>MOVES</CustomText>
-                                <CustomText color={constants.GREY} large>12</CustomText>
+                                <CustomText color={constants.GREY} large>{this.state.moves}</CustomText>
                             </View>
                             <View style={[styles.statsStats]}>
                                 <CustomText>TIME</CustomText>
-                                <CustomText color={constants.BLACK} large>12</CustomText>
+                                <CustomText color={constants.BLACK} large>{this.state.time}</CustomText>
                             </View>
                         </ImageBackground>
                     </View>
