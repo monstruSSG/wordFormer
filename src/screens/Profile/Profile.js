@@ -80,19 +80,19 @@ class Profile extends Component {
                     <View style={[styles.bottomContent, styles.center, styles.row]}>
                         <View style={[styles.half, styles.center]}>
                             <ImageBackground style={[styles.bottomContentContainer, styles.center]} resizeMode='contain' source={GreenBg}>
-                                <View style={[{ width: '84%', height: '30%' }, styles.center]}>
+                                <View style={[styles.gamesHeader, styles.center]}>
                                     <CustomText large>GAMES</CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '40%' }, styles.center]}>
+                                <View style={[ styles.gamesPercent, styles.center]}>
                                     <CustomText giant>80<CustomText normal>%</CustomText></CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '30%' }, styles.center]}>
+                                <View style={[styles.gamesFinished, styles.center]}>
                                     <CustomText normal>FINISHED</CustomText>
                                 </View>
                             </ImageBackground>
                         </View>
                         <View style={[styles.half]}>
-                            <View style={[{ width: '100%', height: '50%' }]}>
+                            <View style={[styles.shareProfileSize]}>
                                 <TouchableOpacity style={[styles.max, styles.center]} onPress={this.navigateAchievements}>
                                     <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={YellowBg}>
                                         <CustomText large color={CONSTANTS.BLACK}>
@@ -101,7 +101,7 @@ class Profile extends Component {
                                     </ImageBackground>
                                 </TouchableOpacity>
                             </View>
-                            <View style={[{ width: '100%', height: '50%' }]}>
+                            <View style={[styles.shareProfileSize]}>
                                 <TouchableOpacity style={[styles.max, styles.center]} onPress={() => alert('Share')}>
                                     <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={FbShareBg}>
                                         <CustomText large>
@@ -119,6 +119,22 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+    gamesHeader: {
+        width: '84%', 
+        height: '30%' 
+    },
+    gamesPercent: {
+        width: '70%', 
+        height: '40%'
+    },
+    gamesFinished: {
+        width: '70%', 
+        height: '30%'
+    },
+    shareProfileSize: {
+        width: '100%',
+        height: '50%'
+    },
     bottomContentContainer: {
         width: '95%', 
         height: '100%'
