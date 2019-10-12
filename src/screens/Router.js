@@ -5,8 +5,12 @@ import Home from './Home/Home';
 import Game from './Game/Game';
 import Profile from './Profile/Profile';
 import Levels from './Levels/Levels';
+import Achievements from './Achievements/Achievements';
 
 const ApplicationStack = createStackNavigator({
+    Achievements:{
+        screen: Achievements
+    },
     Levels:{
         screen: Levels
     },

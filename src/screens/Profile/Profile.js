@@ -18,7 +18,8 @@ class Profile extends Component {
     }
 
     navigateHome = () => this.props.navigation.navigate('Home');
-    navigateLevels = () => this.props.navigation.navigate('Levels')
+    navigateLevels = () => this.props.navigation.navigate('Levels');
+    navigateAchievements = () => this.props.navigation.navigate('Achievements');
 
     render() {
         return (
@@ -78,31 +79,35 @@ class Profile extends Component {
                     <View style={[styles.bottomContent, styles.center, styles.row]}>
                         <View style={[styles.half, styles.center]}>
                             <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={GreenBg}>
-                                <View style={[{ width: '84%', height: '30%'}, styles.center]}>
+                                <View style={[{ width: '84%', height: '30%' }, styles.center]}>
                                     <CustomText large>GAMES</CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '40%'}, styles.center]}>
+                                <View style={[{ width: '70%', height: '40%' }, styles.center]}>
                                     <CustomText giant>80<CustomText normal>%</CustomText></CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '30%'}, styles.center]}>
+                                <View style={[{ width: '70%', height: '30%' }, styles.center]}>
                                     <CustomText normal>FINISHED</CustomText>
                                 </View>
                             </ImageBackground>
                         </View>
                         <View style={[styles.half]}>
                             <View style={[{ width: '100%', height: '50%' }]}>
-                                <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={YellowBg}>
-                                    <CustomText large color='#444142ff'>
-                                        SEE{'\n'}<CustomText color='#444142ff'>ACHIEVEMENTS</CustomText>
-                                    </CustomText>
-                                </ImageBackground>
+                                <TouchableOpacity style={[styles.max, styles.center]} onPress={this.navigateAchievements}>
+                                    <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={YellowBg}>
+                                        <CustomText large color='#444142ff'>
+                                            SEE{'\n'}<CustomText color='#444142ff'>ACHIEVEMENTS</CustomText>
+                                        </CustomText>
+                                    </ImageBackground>
+                                </TouchableOpacity>
                             </View>
                             <View style={[{ width: '100%', height: '50%' }]}>
-                                <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={FbShareBg}>
-                                    <CustomText large>
-                                        FB{'\n'}<CustomText>SHARE YOUR PROFILE</CustomText>
-                                    </CustomText>
-                                </ImageBackground>
+                                <TouchableOpacity style={[styles.max, styles.center]} onPress={() => alert('Share')}>
+                                    <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={FbShareBg}>
+                                        <CustomText large>
+                                            FB{'\n'}<CustomText>SHARE YOUR PROFILE</CustomText>
+                                        </CustomText>
+                                    </ImageBackground>
+                                </TouchableOpacity>
                             </View>
                         </View>
                     </View>
