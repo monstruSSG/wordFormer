@@ -10,15 +10,15 @@ import ProfilePic from '../../assets/radeCarte.png';
 export default props => (
     <View style={[styles.container]}>
         <ImageBackground source={HeaderBg} resizeMode='cover' style={[styles.container]}>
-            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+            <View style={[styles.center, styles.endsSize]}>
                 <TouchableOpacity style={[styles.center, styles.backButton]} onPress={props.onBack}>
                     <Image source={BackButton} style={styles.max} resizeMode='center' />
                 </TouchableOpacity>
             </View>
-            <View style={[styles.center, { width: '50%', height: '100%' }]}>
+            <View style={[styles.center, styles.headerTextSize]}>
                 <CustomText extra style={styles.letter}>LEVELS</CustomText>
             </View>
-            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+            <View style={[styles.center, styles.endsSize]}>
                 <TouchableOpacity style={[styles.center, styles.profileIcon]} onPress={props.onIcon}>
                     <Image source={ProfilePic} style={styles.max} resizeMode='center' />
                 </TouchableOpacity>
@@ -28,6 +28,14 @@ export default props => (
 );
 
 const styles = StyleSheet.create({
+    endsSize: {
+        height: '100%',
+        width: '25%'
+    },
+    headerTextSize: {
+        height: '100%',
+        width: '50%'
+    },
     container: {
         width: '100%',
         height: '100%',
@@ -54,6 +62,6 @@ const styles = StyleSheet.create({
         left: '10%'
     },
     letter: {
-        letterSpacing: 4
+        letterSpacing: 2
     }
 });
