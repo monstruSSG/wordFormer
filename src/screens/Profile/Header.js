@@ -10,15 +10,15 @@ import Levels from '../../assets/levels.png';
 export default props => (
     <View style={[styles.container]}>
         <ImageBackground source={HeaderBg} resizeMode='cover' style={[styles.container]}>
-            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+            <View style={[styles.center, styles.endsSizes]}>
                 <TouchableOpacity style={[styles.center, styles.backButton]} onPress={props.onBack}>
                     <Image source={BackButton} style={styles.max} resizeMode='center' />
                 </TouchableOpacity>
             </View>
-            <View style={[styles.center, { width: '50%', height: '100%' }, styles.letterPosition]}>
+            <View style={[styles.center, styles.profileTextSize, styles.letterPosition]}>
                 <CustomText extra style={styles.letter}>PROFILE</CustomText>
             </View>
-            <View style={[styles.center, { width: '25%', height: '100%' }]}>
+            <View style={[styles.center, styles.endsSizes]}>
                 <TouchableOpacity style={[styles.center, styles.profileIcon]} onPress={props.onIcon}>
                     <Image source={Levels} style={styles.max} resizeMode='center' />
                 </TouchableOpacity>
@@ -28,7 +28,15 @@ export default props => (
 );
 
 const styles = StyleSheet.create({
-    letterPosition:{
+    profileTextSize: {
+        width: '50%',
+        height: '100%'
+    },
+    endsSizes: {
+        width: '25%',
+        height: '100%'
+    },
+    letterPosition: {
         position: 'relative',
         bottom: '4%'
     },

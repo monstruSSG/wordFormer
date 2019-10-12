@@ -4,6 +4,9 @@ import { View, StyleSheet } from 'react-native';
 import CustomText from '../../components/UI/CustonText';
 
 export default class Achievements extends Component {
+    static navigationOptions = {
+        header: null,
+    }
 
     render() {
         return (

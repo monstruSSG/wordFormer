@@ -4,6 +4,7 @@ import { View, StyleSheet, Image, ImageBackground, TouchableOpacity } from 'reac
 import BaseScreen from '../../components/BaseScreen/BaseScreen';
 import CustomText from '../../components/UI/CustonText';
 import Header from './Header';
+import CONSTANTS from '../../utils/constants';
 
 import ProfileIcon from '../../assets/profileIconSimple.png';
 import StatsBg from '../../assets/stats.png';
@@ -24,7 +25,7 @@ class Profile extends Component {
     render() {
         return (
             <BaseScreen>
-                <View style={[styles.max, { alignItems: 'center' }]}>
+                <View style={[styles.max, styles.aligItemsCenter]}>
                     <View style={[styles.headerSize]}>
                         <Header
                             onBack={this.navigateHome}
@@ -49,28 +50,28 @@ class Profile extends Component {
                                 <CustomText large>LEVELS</CustomText>
                             </View>
                             <View style={[styles.center, styles.row, styles.statsContent]}>
-                                <View style={[{ flex: 1 }, styles.center]}>
+                                <View style={[styles.flexOne, styles.center]}>
                                     <View style={[styles.statsHeaderText, styles.oxCenter]}>
-                                        <CustomText color='#bcbcbb'>DONE</CustomText>
+                                        <CustomText color={CONSTANTS.GREY}>DONE</CustomText>
                                     </View>
                                     <View style={[styles.oxCenter, styles.statsHeaderResult]}>
-                                        <CustomText extra color='#9cc028ff'>12</CustomText>
+                                        <CustomText extra color={CONSTANTS.GREEN}>12</CustomText>
                                     </View>
                                 </View>
-                                <View style={[{ flex: 1 }, styles.center]}>
+                                <View style={[styles.flexOne, styles.center]}>
                                     <View style={[styles.statsHeaderText, styles.oxCenter]}>
-                                        <CustomText color='#bcbcbb'>LOST</CustomText>
+                                        <CustomText color={CONSTANTS.GREY}>LOST</CustomText>
                                     </View>
                                     <View style={[styles.oxCenter, styles.statsHeaderResult]}>
-                                        <CustomText extra color='#e13344ff'>2</CustomText>
+                                        <CustomText extra color={CONSTANTS.RED}>2</CustomText>
                                     </View>
                                 </View>
-                                <View style={[{ flex: 1 }, styles.center]}>
+                                <View style={[styles.flexOne, styles.center]}>
                                     <View style={[styles.statsHeaderText, styles.oxCenter]}>
-                                        <CustomText color='#bcbcbb'>NOT PLAYED</CustomText>
+                                        <CustomText color={CONSTANTS.GREY}>NOT PLAYED</CustomText>
                                     </View>
                                     <View style={[styles.oxCenter, styles.statsHeaderResult]}>
-                                        <CustomText extra color='#f19800ff'>3</CustomText>
+                                        <CustomText extra color={CONSTANTS.YELLOW}>3</CustomText>
                                     </View>
                                 </View>
                             </View>
@@ -78,29 +79,29 @@ class Profile extends Component {
                     </View>
                     <View style={[styles.bottomContent, styles.center, styles.row]}>
                         <View style={[styles.half, styles.center]}>
-                            <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={GreenBg}>
-                                <View style={[{ width: '84%', height: '30%' }, styles.center]}>
+                            <ImageBackground style={[styles.bottomContentContainer, styles.center]} resizeMode='contain' source={GreenBg}>
+                                <View style={[styles.gamesHeader, styles.center]}>
                                     <CustomText large>GAMES</CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '40%' }, styles.center]}>
+                                <View style={[ styles.gamesPercent, styles.center]}>
                                     <CustomText giant>80<CustomText normal>%</CustomText></CustomText>
                                 </View>
-                                <View style={[{ width: '70%', height: '30%' }, styles.center]}>
+                                <View style={[styles.gamesFinished, styles.center]}>
                                     <CustomText normal>FINISHED</CustomText>
                                 </View>
                             </ImageBackground>
                         </View>
                         <View style={[styles.half]}>
-                            <View style={[{ width: '100%', height: '50%' }]}>
+                            <View style={[styles.shareProfileSize]}>
                                 <TouchableOpacity style={[styles.max, styles.center]} onPress={this.navigateAchievements}>
                                     <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={YellowBg}>
-                                        <CustomText large color='#444142ff'>
-                                            SEE{'\n'}<CustomText color='#444142ff'>ACHIEVEMENTS</CustomText>
+                                        <CustomText large color={CONSTANTS.BLACK}>
+                                            SEE{'\n'}<CustomText color={CONSTANTS.BLACK}>ACHIEVEMENTS</CustomText>
                                         </CustomText>
                                     </ImageBackground>
                                 </TouchableOpacity>
                             </View>
-                            <View style={[{ width: '100%', height: '50%' }]}>
+                            <View style={[styles.shareProfileSize]}>
                                 <TouchableOpacity style={[styles.max, styles.center]} onPress={() => alert('Share')}>
                                     <ImageBackground style={[styles.max, styles.center]} resizeMode='contain' source={FbShareBg}>
                                         <CustomText large>
@@ -118,6 +119,32 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+    aligItemsCenter: {
+        alignItems: 'center'
+    },
+    gamesHeader: {
+        width: '84%', 
+        height: '30%' 
+    },
+    gamesPercent: {
+        width: '70%', 
+        height: '40%'
+    },
+    gamesFinished: {
+        width: '70%', 
+        height: '30%'
+    },
+    shareProfileSize: {
+        width: '100%',
+        height: '50%'
+    },
+    bottomContentContainer: {
+        width: '95%', 
+        height: '100%'
+    },
+    flexOne: {
+        flex: 1
+    },
     bottomContent: {
         width: '94%',
         height: '34%'
