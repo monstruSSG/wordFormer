@@ -19,7 +19,7 @@ export default props => (
         </View>
         <View style={[styles.description]}>
             <CustomText normal color={CONSTANTS.BLACK}>Level {props.level}</CustomText>
-            <CustomText large color={props.finished ? CONSTANTS.GREEN : CONSTANTS.RED}>{props.finished ? 'FINISHED' : 'NOT DONE'}</CustomText>
+            <CustomText large color={props.finished ? CONSTANTS.GREEN : CONSTANTS.RED}>DONE</CustomText>
         </View>
         <View style={[styles.buttonContent]}>
             <TouchableOpacity style={[styles.center,styles.buttonSize]} onPress={props.onPlay}>
